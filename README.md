@@ -3,7 +3,7 @@ This repository analyzes the movie recommendation dataset by Probabilistic Matri
 
 # datasets
 MovieLens Latest Datasets are downloaded here https://grouplens.org/datasets/movielens/
-In the analysis, small dataset (100k ratings applied to 9,000 movies by 600 users) is tested. To test model capability quickly, partial movies with id less than 300 are selected.
+In the analysis, small dataset (100k ratings applied to 9,000 movies by 600 users) is tested. To test model capability quickly, partial movies with id less than 400 (super-mini-MovieLens) are tested.
 
 # model
 Probabilistic Matrix Factorization is trained by MAP (maximum a posterior) estimation.
@@ -17,9 +17,11 @@ Based on the Columbia University Prof. John Paiskley's lecture (http://www.colum
 Under PMF, model is coded under the class inheritance of sklearn BaseEstimator.
 To deal with sparse matrix, math operation relies on scipy.sparse lil_matrix and coo_matrix
 
-# Notebook
+# Notebooks
 ## hyperparameter sensitivity
-Leveraging GridSearchCV, three hyperparameters (latent dimension, variance of matrix R, reguralization term \lambda) are tuned by 5 folds cross valication.
+Leveraging GridSearchCV, two hyperparameters (features dimension, reguralization term of variance of matrix R =$\lambda \sigma^2$) are tuned by 3 folds cross valication.
+
+Grid search is computed with 4 processes in 16GB CPU mac book pro and it takes 17min 12s to test 24 combinations in total.
 
 # Submission
 This is submitted to Statistical Machine Learning coarse (2020 Summer) in the University of Tokyo
